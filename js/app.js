@@ -14,6 +14,17 @@ function createNote(title, text) {
     </div>
     <p id='note-description'>${text}</p>
     `
+  
+  const editBtn = noteEl.querySelector('.note-edit');
+  const deleteBtn = noteEl.querySelector('.note-delete');
+
+  editBtn.addEventListener('click', (e) => {
+
+  });
+
+  deleteBtn.addEventListener('click', (e) => {
+    noteEl.remove();
+  })
 
     return noteEl;
 }
