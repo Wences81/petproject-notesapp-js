@@ -7,7 +7,7 @@ function createNote(title, text) {
     noteEl.innerHTML = `
     <div class='note-header'>
       <p id='note-title'>${title}</p>
-      <input id='note-title-input' class='hidden'>${title}</input>
+      <input id='note-title-input' class='hidden' placeholder='${title}'></input>
       <div class='note-actions'>
         <button class='note-edit'><i class="fa-solid fa-pen-to-square"></i></button>
         <button class='note-delete'><i class="fa-solid fa-trash"></i></button>
@@ -28,11 +28,22 @@ function createNote(title, text) {
   editBtn.addEventListener('click', (e) => {
     titleEl.classList.toggle('hidden');
     textEl.classList.toggle('hidden');
+
+    titleInputEl.classList.toggle('hidden');
+    textInputEl.classList.toggle('hidden');
   });
 
   deleteBtn.addEventListener('click', (e) => {
     noteEl.remove();
-  })
+  });
+
+  titleInputEl.addEventListener('input', (e) => {
+    titleEl.innerText = e.target.value;
+  });
+
+  textInputEl.addEventListener('input', (e) => {
+    textEl.innerText = e.target.value;
+  });
 
     return noteEl;
 }
